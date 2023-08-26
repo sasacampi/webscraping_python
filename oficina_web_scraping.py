@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 
-fabricantes = "nvidia"
+fabricantes = "amd"
 #fabricantes = ["amd", "intel", "nvidia"]
 sessao = requests.session()
 anuncios_obtidos = []
@@ -50,6 +50,9 @@ def extrair():
         pagina_anuncio = sessao.get(url_anuncio)
         pagina_parseada = BeautifulSoup(pagina_anuncio.text, "html.parser")
 
+    titulo = pagina_parseada.select("dDYTAu")[0].text
+    a_vista = pagina_parseada.select("finalPrice")[0].text
+    a_prazo = pagina_parseada.select("regularPrice")[0].text
 
     pass
                         
