@@ -4,7 +4,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 
-fabricantes = "amd"
+fabricantes = ["amd", "nvidia", "intel"]
 sessao = requests.session()
 anuncios_obtidos = []
 
@@ -14,6 +14,8 @@ def iniciar_scraper():
         extrair()
 
 def procurar():
+    for fabricante in fabricantes:
+
     numero_pagina_atual = 1
     while True:
         pagina_produtos = obter_paginas_anuncios(fabricantes, numero_pagina_atual)
