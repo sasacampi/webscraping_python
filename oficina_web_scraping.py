@@ -1,8 +1,6 @@
-import os
-import re
 import requests
 from bs4 import BeautifulSoup
-from datetime import datetime
+
 
 fabricantes = ["amd", "nvidia", "intel"]
 sessao = requests.session()
